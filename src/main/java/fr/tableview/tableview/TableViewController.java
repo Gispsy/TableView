@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class TableViewController {
@@ -100,17 +101,36 @@ public class TableViewController {
 
     @FXML// Sauvegarde la saisie dans le tableau
     public void Save(ActionEvent actionEvent) {
+        //Recupere les valeur des TextField et les transforme en String
+        String p = txt_prenom.getText();
+        String n = txt_nom.getText();
+        String v = txt_ville.getText();
 
+        //Creer un model pour le ramener dans le tableau
+        model.add(new Client(p, n, v));
+
+        lst_clients.setEditable(false);
 
     }
+
     @FXML// Annule la saisie dans les TextField
     public void Cancel(ActionEvent actionEvent) {
-
+        txt_prenom.clear();
+        txt_nom.clear();
+        txt_ville.clear();
 
     }
+
+    public void Select(MouseEvent mouseEvent) {
+        lst_clients.getSelectionModel().getSelectedIndex();
+
+        System.out.println(lst_clients.getSelectionModel().getSelectedIndex());
+    }
+
     @FXML// Supprimme la saisie dans le tableau
     public void Delete(ActionEvent actionEvent) {
-
+        lst_clients.getSelectionModel().getSelectedIndex();
+        lst_clients.getItems().remove(lst_clients.getSelectionModel().getSelectedIndex());
 
     }
 

@@ -30,7 +30,7 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <TableView fx:id="lst_clients" layoutX="18.0" layoutY="62.0" prefHeight="320.0" prefWidth="360.0">
+      <TableView fx:id="lst_clients" layoutX="18.0" layoutY="62.0" onMouseClicked="#Select" prefHeight="320.0" prefWidth="360.0">
         <columns>
           <TableColumn fx:id="col_prenom" prefWidth="120.0" text="Prénom" />
           <TableColumn fx:id="col_nom" prefWidth="120.0" text="Nom" />
